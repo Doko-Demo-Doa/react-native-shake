@@ -1,0 +1,32 @@
+{
+  "name": "react-native-shake",
+  "version": "3.0.0",
+  "description": "Detect shake event on Android and iOS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Clip-sub/react-native-shake-event.git"
+  },
+  "keywords": [
+    "android",
+    "ios",
+    "native",
+    "react",
+    "react-component",
+    "react-native",
+    "react-native-component",
+    "shake",
+    "shake-event",
+    "shake-event-android",
+    "shake-event-ios"
+  ],
+  "author": "Clip-sub <support@clip-sub.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Clip-sub/react-native-shake/issues"
+  },
+  "homepage": "https://github.com/Clip-sub/react-native-shake",
+  "dependencies": {
+    "invariant": "^2.2.x"
+  }
+}
