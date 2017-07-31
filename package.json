@@ -1,6 +1,6 @@
 {
   "name": "react-native-shake",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Detect shake event on Android and iOS",
   "main": "index.js",
   "repository": {
