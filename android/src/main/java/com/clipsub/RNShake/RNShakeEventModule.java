@@ -1,6 +1,8 @@
 package com.clipsub.RNShake;
 
 import android.support.annotation.Nullable;
+import android.content.Context;
+import android.hardware.SensorManager;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
@@ -19,6 +21,9 @@ public class RNShakeEventModule extends ReactContextBaseJavaModule {
         sendEvent(reactContext, "ShakeEvent", null);
       }
     }, 1);
+
+    mShakeDetector.start(
+      (SensorManager) reactContext.getSystemService(Context.SENSOR_SERVICE));
   }
 
   @Override

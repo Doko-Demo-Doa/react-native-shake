@@ -1,3 +1,5 @@
+package com.clipsub.RNShake;
+
 import javax.annotation.Nullable;
 
 import java.util.concurrent.TimeUnit;

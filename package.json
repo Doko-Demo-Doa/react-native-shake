@@ -1,11 +1,11 @@
 {
   "name": "react-native-shake",
-  "version": "3.0.0",
+  "version": "3.0.5",
   "description": "Detect shake event on Android and iOS",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Clip-sub/react-native-shake-event.git"
+    "url": "https://github.com/Clip-sub/react-native-shake.git"
   },
   "keywords": [
     "android",
