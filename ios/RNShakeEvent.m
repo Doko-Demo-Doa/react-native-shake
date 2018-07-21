@@ -86,6 +86,9 @@ RCT_EXPORT_MODULE();
                                                 body:nil];
 }
 
++ (BOOL)requiresMainQueueSetup {
+    return YES;
+}
 @end
 
 #endif
