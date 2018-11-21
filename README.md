@@ -29,9 +29,6 @@ react-native link react-native-shake
 1. Add the `ios/RNShakeEvent.xcodeproj` file to your Xcode project [Demo](https://facebook.github.io/react-native/img/AddToLibraries.png);
 2. Add the `Products/libRNShakeEvent.a` file to **Build Phases**  [Demo](https://facebook.github.io/react-native/img/AddToBuildPhases.png).
 
-1. Add the `ios/RNShakeEvent.xcodeproj` file to your Xcode project [Demo](https://facebook.github.io/react-native/img/AddToLibraries.png);
-2. Add the `Products/libRNShakeEvent.a` file to **Build Phases**  [Demo](https://facebook.github.io/react-native/img/AddToBuildPhases.png).
-
 This step is described here: [Linking Libraries](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#content).
 
 ### Manual (Android):
@@ -47,12 +44,12 @@ import RNShake from 'react-native-shake';
 
 class MyComponent extends React.Component {
   componentWillMount() {
-    RNShake.addEventListener('shake', () => {
+    RNShake.addEventListener('ShakeEvent', () => {
       // Your code...
     });
   }
 
   componentWillUnmount() {
-    RNShake.removeEventListener('shake');
+    RNShake.removeEventListener('ShakeEvent');
   }
 }
