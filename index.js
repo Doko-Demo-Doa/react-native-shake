@@ -11,8 +11,8 @@ var listener;
 class RNShake {
   static addEventListener(type: string, handler: Function) {
     invariant(
-      type === 'shake',
-      'RNShake only supports `shake` event'
+      type === 'ShakeEvent',
+      'RNShake only supports `ShakeEvent` event'
     );
     listener = DeviceEventEmitter.addListener('ShakeEvent', () => {
       if (handler) {
@@ -22,8 +22,8 @@ class RNShake {
   }
   static removeEventListener(type: string, handler: Function) {
     invariant(
-      type === 'shake',
-      'RNShake only supports `shake` event'
+      type === 'ShakeEvent',
+      'RNShake only supports `ShakeEvent` event'
     );
     if (!listener) {
       return;
