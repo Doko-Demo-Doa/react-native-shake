@@ -1,18 +1,18 @@
 # React Native Shake Event Detector
 
-With this library, you can add shake event detector on your React Native app. Because [react-native-shake-event](https://raw.githubusercontent.com/jadsonlourenco/react-native-shake-event/) is not in active development anymore, I decided to created this.
+With this library, you can add shake event detector on your React Native app. Because `react-native-shake-event` is not in active development anymore, I decided to created this.
 
 Please note that it only works on *real devices*
 
 ## Installation
 
-```shell
+```sh
 npm install react-native-shake
 ```
 
 or
 
-```shell
+```sh
 yarn add react-native-shake
 ```
 
