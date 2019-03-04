@@ -5,9 +5,9 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        minSdkVersion 18
-        versionCode 2
-        versionName "3.0"
+        minSdkVersion 16
+        versionCode 3
+        versionName "3.0.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
