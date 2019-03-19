@@ -22,7 +22,7 @@ public class RNShakeEventModule extends ReactContextBaseJavaModule {
       public void onShake() {
         sendEvent(reactContext, "ShakeEvent", null);
       }
-    }, 1);
+    });
 
     mShakeDetector.start(
       (SensorManager) reactContext.getSystemService(Context.SENSOR_SERVICE));
