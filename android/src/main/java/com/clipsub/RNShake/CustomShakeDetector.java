@@ -33,6 +33,8 @@ public class CustomShakeDetector implements SensorEventListener {
   public interface ShakeListener {
     /** Called on the main thread when the device is shaken. */
     void onShake();
+
+    void onShakeStart();
   }
 
   private final SampleQueue queue = new SampleQueue();
@@ -40,6 +42,9 @@ public class CustomShakeDetector implements SensorEventListener {
 
   private SensorManager sensorManager;
   private Sensor accelerometer;
+
+  private boolean m_bCurentShaking = false;
+  private boolean m_bPrevShaking = false;
 
   public CustomShakeDetector(ShakeListener listener) {
     this.listener = listener;
@@ -85,6 +90,13 @@ public class CustomShakeDetector implements SensorEventListener {
     boolean accelerating = isAccelerating(event);
     long timestamp = event.timestamp;
     queue.add(timestamp, accelerating);
+    
+    int iAcceleratingCount = queue.getAcceleratingCount();
+    int MIN_QUEUE_SIZE = 4;
+    if (iAcceleratingCount == MIN_QUEUE_SIZE) {
+      listener.onShakeStart();
+    }
+
     if (queue.isShaking()) {
       queue.clear();
       listener.onShake();
@@ -160,6 +172,10 @@ public class CustomShakeDetector implements SensorEventListener {
       }
     }
 
+    int getAcceleratingCount() {
+      return acceleratingCount;
+    }
+
     /** Removes all samples from this queue. */
     void clear() {
       while (oldest != null) {
@@ -213,6 +229,7 @@ public class CustomShakeDetector implements SensorEventListener {
           && acceleratingCount >= (sampleCount >> 1) + (sampleCount >> 2);
     }
   }
+  
 
   /** An accelerometer sample. */
   static class Sample {

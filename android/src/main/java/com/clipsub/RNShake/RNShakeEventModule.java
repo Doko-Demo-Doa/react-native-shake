@@ -22,6 +22,11 @@ public class RNShakeEventModule extends ReactContextBaseJavaModule {
       public void onShake() {
         sendEvent(reactContext, "ShakeEvent", null);
       }
+
+      @Override
+      public void onShakeStart() {
+        sendEvent(reactContext, "ShakeEventBegan", null);
+      }
     });
 
     mShakeDetector.start(
