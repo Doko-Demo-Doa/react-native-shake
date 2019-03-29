@@ -6,6 +6,7 @@
 #import <React/RCTUtils.h>
 
 static NSString *const RCTShowDevMenuNotification = @"RCTShowDevMenuNotification";
+static NSString *const ShakeBegan = @"ShakeBegan";
 
 #if !RCT_DEV
 
@@ -18,6 +19,14 @@ static NSString *const RCTShowDevMenuNotification = @"RCTShowDevMenuNotification
     }
 }
 
+- (void)handleShakeEventBegan:(__unused UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.subtype == UIEventSubtypeMotionShake) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:ShakeBegan object:nil];
+    }
+}
+
+
 @end
 
 @implementation RNShakeEvent
@@ -28,6 +37,7 @@ RCT_EXPORT_MODULE();
 
 + (void)initialize
 {
+    RCTSwapInstanceMethods([UIWindow class], @selector(motionBegan:withEvent:), @selector(handleShakeEventBegan:withEvent:));
     RCTSwapInstanceMethods([UIWindow class], @selector(motionEnded:withEvent:), @selector(handleShakeEvent:withEvent:));
 }
 
@@ -38,6 +48,10 @@ RCT_EXPORT_MODULE();
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(motionEnded:)
                                                      name:RCTShowDevMenuNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(motionBegan:)
+                                                     name:ShakeBegan
                                                    object:nil];
     }
     return self;
@@ -51,6 +65,12 @@ RCT_EXPORT_MODULE();
 - (void)motionEnded:(NSNotification *)notification
 {
     [_bridge.eventDispatcher sendDeviceEventWithName:@"ShakeEvent"
+                                                body:nil];
+}
+
+- (void)motionBegan:(NSNotification *)notification
+{
+    [_bridge.eventDispatcher sendDeviceEventWithName:@"ShakeEventBegan"
                                                 body:nil];
 }
 
