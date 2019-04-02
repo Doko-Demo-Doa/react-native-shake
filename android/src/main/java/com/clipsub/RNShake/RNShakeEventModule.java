@@ -82,7 +82,6 @@ public class RNShakeEventModule extends ReactContextBaseJavaModule {
   public void removeShake() {
     if (this.mShakeDetector != null) {
       mShakeDetector.stopShakeDetector(getReactApplicationContext());
-      mShakeDetector.destroy(getReactApplicationContext());
     }
   }
 
