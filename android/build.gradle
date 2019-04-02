@@ -18,20 +18,19 @@ android {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.github.congnguyen91:android-shake-detector:v1.5'
 }
 
 allprojects {
     repositories {
         maven { url "https://jitpack.io" }
         mavenLocal()
+        google()
         jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
-        }
-        maven {
-            url "https://maven.google.com"
         }
     }
 }
