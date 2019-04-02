@@ -2,32 +2,33 @@
  * @providesModule RNShake
  * @flow
  */
-"use strict";
 
-import React, { DeviceEventEmitter, NativeModules } from "react-native";
-import invariant from "invariant";
+import React, { DeviceEventEmitter, NativeModules, Platform } from 'react-native';
 
-var listener;
-var listenerBegin;
+const { RNShakeEvent } = NativeModules;
+
+let listener;
+let listenerBegin;
 class RNShake {
-  static addEventListener(type: string, handler: Function) {
-    if (type === "ShakeEvent") {
-      listener = DeviceEventEmitter.addListener("ShakeEvent", () => {
+  static addEventListener(type, handler) {
+    if (type === 'ShakeEvent') {
+      listener = DeviceEventEmitter.addListener('ShakeEvent', () => {
         if (handler) {
           handler();
         }
       });
     }
-    if (type === "ShakeEventBegan") {
-      listenerBegin = DeviceEventEmitter.addListener("ShakeEventBegan", () => {
+    if (type === 'ShakeEventBegan') {
+      listenerBegin = DeviceEventEmitter.addListener('ShakeEventBegan', () => {
         if (handler) {
           handler();
         }
       });
     }
   }
-  static removeEventListener(type: string, handler: Function) {
-    if (type === "ShakeEvent") {
+
+  static removeEventListener(type, handler) {
+    if (type === 'ShakeEvent') {
       if (!listener) {
         return;
       }
@@ -36,7 +37,7 @@ class RNShake {
       }
       listener.remove();
     }
-    if (type === "ShakeEventBegan") {
+    if (type === 'ShakeEventBegan') {
       if (!listenerBegin) {
         return;
       }
@@ -44,6 +45,18 @@ class RNShake {
         handler();
       }
       listenerBegin.remove();
+    }
+  }
+
+  static initShake(options) {
+    if (Platform.OS === 'android') {
+      RNShakeEvent.initShake(options);
+    }
+  }
+
+  static removeShake() {
+    if (Platform.OS === 'android') {
+      RNShakeEvent.removeShake();
     }
   }
 }
