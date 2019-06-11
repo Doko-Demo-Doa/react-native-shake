@@ -70,12 +70,16 @@ public class RNShakeEventModule extends ReactContextBaseJavaModule {
         .interval(shakeInterval)
         .shakeCount(shakeCount)
         .sensibility(sensibility);
-    this.mShakeDetector = new ShakeDetector(options).start(getReactApplicationContext(), new ShakeCallback() {
+    if (this.mShakeDetector == null) {
+      this.mShakeDetector = new ShakeDetector(options).start(getReactApplicationContext(), new ShakeCallback() {
         @Override
         public void onShake() {
           sendEvent(getReactApplicationContext(), "ShakeEvent", null);
         }
-    });
+      }); 
+    } else {
+      mShakeDetector.start(getReactApplicationContext());
+    }
   }
 
   @ReactMethod
