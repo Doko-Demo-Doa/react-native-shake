@@ -1,6 +1,6 @@
 package com.clipsub.RNShake;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.content.Context;
 import android.hardware.SensorManager;
 
