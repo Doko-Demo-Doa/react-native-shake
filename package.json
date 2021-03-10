@@ -3,6 +3,7 @@
   "version": "3.5.0",
   "description": "Detect shake event on Android and iOS",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Clip-sub/react-native-shake.git"
