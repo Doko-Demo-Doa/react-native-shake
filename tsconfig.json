@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react-native",
+    "lib": ["ESNext"],
+    "module": "CommonJS",
+    "noEmitOnError": true,
+    "outDir": "./lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext",
+  },
+  "exclude": ["**/__tests__/*"],
+  "include": ["src"]
+}

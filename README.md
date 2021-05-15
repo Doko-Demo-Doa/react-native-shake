@@ -39,11 +39,12 @@ react-native link react-native-shake
 
 ## Usage
 
-```js
+```tsx
 import RNShake from 'react-native-shake';
 
+// For v3.x.x and below:
 class MyComponent extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     RNShake.addEventListener('ShakeEvent', () => {
       // Your code...
     });
@@ -53,3 +54,17 @@ class MyComponent extends React.Component {
     RNShake.removeEventListener('ShakeEvent');
   }
 }
+
+// For v4.x.x onwards:
+class MyComponent extends React.Component {
+  componentDidMount() {
+    RNShake.addEventListener(() => {
+      // Your code...
+    });
+  }
+
+  componentWillUnmount() {
+    RNShake.removeEventListener();
+  }
+}
+```
