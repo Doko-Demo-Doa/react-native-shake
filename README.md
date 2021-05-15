@@ -1,6 +1,6 @@
 # React Native Shake Event Detector
 
-[![Version Badge](http://versionbadg.es/Doko-Demo-Doa/react-native-shake.svg)](https://npmjs.org/package/react-native-shake)</sup>
+[![Latest version](https://badge.fury.io/js/react-native-shake.svg)](https://badge.fury.io/js/react-native-shake)
 
 ![RNShake](rnshake.png)
 
