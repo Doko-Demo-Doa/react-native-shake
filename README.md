@@ -1,5 +1,9 @@
 # React Native Shake Event Detector
 
+[![Version Badge](http://versionbadg.es/Doko-Demo-Doa/react-native-shake.svg)](https://npmjs.org/package/react-native-shake)</sup>
+
+![RNShake](rnshake.png)
+
 With this library, you can add shake event detector on your React Native app. Because `react-native-shake-event` is not in active development anymore, I decided to created this.
 
 Please note that it only works on *real devices*
@@ -20,22 +24,18 @@ yarn add react-native-shake
 
 ### Automatic:
 
-```shell
-react-native link react-native-shake
+From React Native 0.60, you don't have to manually link libraries anymore. Just
+
+```bash
+cd ios
+pod update
 ```
+
+and you're good to go.
 
 ### Manual (iOS):
 
-1. Add the `ios/RNShakeEvent.xcodeproj` file to your Xcode project [Demo](https://facebook.github.io/react-native/img/AddToLibraries.png);
-2. Add the `Products/libRNShakeEvent.a` file to **Build Phases**  [Demo](https://facebook.github.io/react-native/img/AddToBuildPhases.png).
-
-This step is described here: [Linking Libraries](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#content).
-
-### Manual (Android):
-
-```
-react-native link react-native-shake
-```
+Follow this [guide](https://reactnative.dev/docs/linking-libraries-ios)
 
 ## Usage
 
