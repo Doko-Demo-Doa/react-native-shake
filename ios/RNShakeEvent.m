@@ -1,11 +1,11 @@
 #import "RNShakeEvent.h"
 
-#import <React/RCTBridge.h>
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTLog.h>
 #import <React/RCTUtils.h>
 
 static NSString *const RCTShowDevMenuNotification = @"RCTShowDevMenuNotification";
+static NSString *const RNShakeEventName = @"ShakeEvent";
 
 #if !RCT_DEV
 
@@ -22,9 +22,15 @@ static NSString *const RCTShowDevMenuNotification = @"RCTShowDevMenuNotification
 
 @implementation RNShakeEvent
 
-@synthesize bridge = _bridge;
-
 RCT_EXPORT_MODULE();
+
+- (NSArray<NSString *> *)supportedEvents
+{
+  return
+  @[
+      RNShakeEventName
+  ];
+}
 
 + (void)initialize
 {
@@ -34,7 +40,7 @@ RCT_EXPORT_MODULE();
 - (instancetype)init
 {
     if ((self = [super init])) {
-        RCTLogInfo(@"RNShakeEvent: started in debug mode");
+        RCTLogInfo(@"RNShakeEvent: Started in debug mode");
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(motionEnded:)
                                                      name:RCTShowDevMenuNotification
@@ -50,8 +56,11 @@ RCT_EXPORT_MODULE();
 
 - (void)motionEnded:(NSNotification *)notification
 {
-    [_bridge.eventDispatcher sendDeviceEventWithName:@"ShakeEvent"
-                                                body:nil];
+    [self sendEvent];
+}
+
+- (void)sendEvent {
+    [self sendEventWithName:RNShakeEventName body:nil];
 }
 
 @end
@@ -60,9 +69,15 @@ RCT_EXPORT_MODULE();
 
 @implementation RNShakeEvent
 
-@synthesize bridge = _bridge;
-
 RCT_EXPORT_MODULE();
+
+- (NSArray<NSString *> *)supportedEvents
+{
+  return
+  @[
+      RNShakeEventName
+  ];
+}
 
 - (instancetype)init
 {
@@ -82,8 +97,11 @@ RCT_EXPORT_MODULE();
 
 - (void)motionEnded:(NSNotification *)notification
 {
-    [_bridge.eventDispatcher sendDeviceEventWithName:@"ShakeEvent"
-                                                body:nil];
+    [self sendEvent];
+}
+
+- (void)sendEvent {
+    [self sendEventWithName:RNShakeEventName body:nil];
 }
 
 + (BOOL)requiresMainQueueSetup {

@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.platform     = :ios, "10.0"
 
-  s.source        = { :git => package_json["repository"]["url"].gsub(/(http.*)/).first, :tag => "v#{s.version}" }
+  s.source        = { :git => "https://github.com/Doko-Demo-Doa/react-native-shake", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m,swift}"
 
   s.dependency 'React'
