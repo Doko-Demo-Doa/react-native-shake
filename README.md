@@ -58,13 +58,13 @@ class MyComponent extends React.Component {
 // For v4.x.x onwards:
 class MyComponent extends React.Component {
   componentDidMount() {
-    RNShake.addEventListener(() => {
+    RNShake.addListener(() => {
       // Your code...
     });
   }
 
   componentWillUnmount() {
-    RNShake.removeEventListener();
+    RNShake.removeListener();
   }
 }
 ```
