@@ -9,8 +9,14 @@
     "outDir": "./lib",
     "sourceMap": true,
     "strict": true,
+    "skipLibCheck": true,
     "target": "ESNext",
   },
-  "exclude": ["**/__tests__/*"],
+  "exclude": [
+    "**/__tests__/*",
+    "typings/browser.d.ts",
+    "typings/browser",
+    "node_modules"
+  ],
   "include": ["src"]
 }
