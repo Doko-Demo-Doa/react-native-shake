@@ -25,6 +25,10 @@
     "!xcshareddata",
     "!xcuserdata"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Doko-Demo-Doa/react-native-shake.git"
+  },
   "scripts": {
     "compile": "rm -rf lib && tsc -p .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
