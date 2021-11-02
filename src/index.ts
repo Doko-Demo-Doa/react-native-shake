@@ -3,15 +3,13 @@ import { NativeEventEmitter, NativeModules } from 'react-native'
 const _eventEmitter = new NativeEventEmitter(NativeModules.RNShakeEvent)
 
 export default {
-  addListener: (callback: () => void | undefined) =>
-    _eventEmitter.addListener('ShakeEvent', () => {
+  addListener: (callback: () => void | undefined) => {
+    const _subscription = _eventEmitter.addListener('ShakeEvent', () => {
       callback?.()
-    }),
+    })
 
-  removeListener: (callback: () => void | undefined) =>
-    _eventEmitter.removeListener('ShakeEvent', () => {
-      callback?.()
-    }),
+    return _subscription
+  },
 
   removeAllListeners: () => _eventEmitter.removeAllListeners('ShakeEvent'),
 

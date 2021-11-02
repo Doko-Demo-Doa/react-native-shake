@@ -67,4 +67,20 @@ class MyComponent extends React.Component {
     RNShake.removeListener();
   }
 }
+
+// For v5.x.x onwards:
+import React from 'react'
+
+export const MyComponent = () => {
+  React.useEffect(() => {
+    const subscription = RNShake.addListener(() => {
+      // Your code here...
+    })
+
+    return () => {
+      // Your code here...
+      subscription.remove()
+    }
+  }, [])
+}
 ```
