@@ -1,6 +1,6 @@
-import { NativeEventEmitter } from 'react-native'
+import { NativeEventEmitter, NativeModules } from 'react-native'
 
-const _eventEmitter = new NativeEventEmitter()
+const _eventEmitter = new NativeEventEmitter(NativeModules.RNShake)
 
 export default {
   addListener: (callback: () => void | undefined) => {

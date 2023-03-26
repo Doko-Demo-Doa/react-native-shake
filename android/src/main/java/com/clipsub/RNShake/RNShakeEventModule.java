@@ -8,6 +8,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.module.annotations.ReactModule;
 
@@ -39,5 +40,15 @@ public class RNShakeEventModule extends ReactContextBaseJavaModule {
     if (reactContext.hasActiveCatalystInstance()) {
       reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit(eventName, params);
     }
+  }
+
+  @ReactMethod
+  public void addListener(String eventName) {
+    /* Required for RN built-in Event Emitter Calls. */
+  }
+
+  @ReactMethod
+  public void removeListeners(Integer count) {
+    /* Required for RN built-in Event Emitter Calls. */
   }
 }
