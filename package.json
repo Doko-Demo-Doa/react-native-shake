@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "0.71.4"
+    "react-native": "0.71.6"
   },
   "jest": {
     "preset": "react-native",
