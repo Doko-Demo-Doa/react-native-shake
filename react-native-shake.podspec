@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "10.0"
 
   s.source        = { :git => "https://github.com/Doko-Demo-Doa/react-native-shake", :tag => "v#{s.version}" }
-  s.source_files  = "ios/**/*.{h,m,swift}"
+  s.source_files  = "ios/**/*.{h,m,mm,swift}"
 
-  s.dependency 'React'
+  install_modules_dependencies(s)
 end

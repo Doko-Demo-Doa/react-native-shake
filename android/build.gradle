@@ -1,38 +1,48 @@
-def safeExtGet(prop, fallback) {
+def isNewArchitectureEnabled() {
+  return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+}
+buildscript {
+  ext.safeExtGet = {prop, fallback ->
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+  }
+  repositories {
+    google()
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle:7.3.1")
+  }
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.facebook.react'
 
 android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 30)
-    buildToolsVersion safeExtGet('buildToolsVersion', '28.0.3')
+  compileSdkVersion safeExtGet('compileSdkVersion', 33)
+  namespace "com.clipsub.RNShake"
 
-    defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 18)
-        versionCode 4
-        versionName "4.0.0"
+  defaultConfig {
+    minSdkVersion safeExtGet('minSdkVersion', 21)
+    targetSdkVersion safeExtGet('targetSdkVersion', 33)
+    buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString())
+  }
+
+  sourceSets {
+    main {
+      if(isNewArchitectureEnabled()) {
+        java.srcDirs += ['src/newarch/java']
+      } else {
+        java.srcDirs += ['src/oldarch/java']
+      }
     }
-    lintOptions {
-       warning 'InvalidPackage'
-    }
+  }
+}
+
+repositories {
+  mavenCentral()
+  google()
 }
 
 dependencies {
-    implementation "com.facebook.react:react-native:+"
-}
-
-allprojects {
-    repositories {
-        maven { url "https://jitpack.io" }
-        mavenLocal()
-        jcenter()
-        maven {
-            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url "$rootDir/../node_modules/react-native/android"
-        }
-        maven {
-            url "https://maven.google.com"
-        }
-    }
+  implementation 'com.facebook.react:react-native'
 }
