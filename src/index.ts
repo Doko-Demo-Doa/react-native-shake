@@ -1,15 +1,14 @@
-import { NativeEventEmitter, NativeModules } from 'react-native'
+import { NativeEventEmitter } from 'react-native'
 
-const _eventEmitter = new NativeEventEmitter(NativeModules.RNShakeEvent)
+import NativeRNShake from './NativeRNShake'
+
+const eventEmitter = new NativeEventEmitter(NativeRNShake)
 
 export default {
   addListener: (callback: () => void | undefined) => {
-    const _subscription = _eventEmitter.addListener('ShakeEvent', () => {
+    return eventEmitter.addListener('ShakeEvent', () => {
       callback?.()
     })
-
-    return _subscription
   },
-
-  removeAllListeners: () => _eventEmitter.removeAllListeners('ShakeEvent'),
+  removeAllListeners: () => eventEmitter.removeAllListeners('ShakeEvent'),
 }

@@ -64,5 +64,13 @@
       "json",
       "node"
     ]
+  },
+  "codegenConfig": {
+    "name": "RNShakeSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.clipsub.RNShake"
+    }
   }
 }
