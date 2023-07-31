@@ -68,7 +68,7 @@
   "codegenConfig": {
     "name": "RNShakeSpec",
     "type": "modules",
-    "jsSrcsDir": "src",
+    "jsSrcsDir": "lib",
     "android": {
       "javaPackageName": "com.clipsub.RNShake"
     }
