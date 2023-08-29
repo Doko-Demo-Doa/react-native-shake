@@ -15,5 +15,9 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/Doko-Demo-Doa/react-native-shake", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m,mm,swift}"
 
-  install_modules_dependencies(s)
+  if respond_to?(:install_modules_dependencies, true)
+    install_modules_dependencies(s)
+  else
+    s.dependency 'React'
+  end
 end
