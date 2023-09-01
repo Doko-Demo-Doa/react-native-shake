@@ -1,5 +1,11 @@
 # React Native Shake Event Detector
 
+If you like this, please consider...
+
+<a href="https://www.buymeacoffee.com/dokodemodoa"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=dokodemodoa&button_colour=40DCA5&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
+
+Thank you!
+
 [![Latest version](https://badge.fury.io/js/react-native-shake.svg)](https://badge.fury.io/js/react-native-shake)
 
 ![RNShake](rnshake.png)
