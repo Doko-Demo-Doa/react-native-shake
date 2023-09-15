@@ -3,8 +3,8 @@
   "version": "5.5.0",
   "description": "A library to detect shake event on Android and iOS",
   "homepage": "https://github.com/Doko-Demo-Doa/react-native-shake",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
   "author": "Quan Pham <phamvanquan@live.com>",
   "license": "MIT",
   "files": [
