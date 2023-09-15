@@ -1,6 +1,6 @@
 import { NativeEventEmitter } from 'react-native'
 
-import NativeRNShake from './NativeRNShake'
+import NativeRNShake from '../js/NativeRNShake'
 
 const eventEmitter = new NativeEventEmitter(NativeRNShake)
 
