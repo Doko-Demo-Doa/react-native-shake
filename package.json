@@ -10,6 +10,7 @@
   "files": [
     "android",
     "ios",
+    "js",
     "lib",
     "react-native-shake.podspec",
     "!.DS_Store",
@@ -68,7 +69,7 @@
   "codegenConfig": {
     "name": "RNShakeSpec",
     "type": "modules",
-    "jsSrcsDir": "lib",
+    "jsSrcsDir": "js",
     "android": {
       "javaPackageName": "com.clipsub.RNShake"
     }
