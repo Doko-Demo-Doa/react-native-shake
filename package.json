@@ -1,6 +1,6 @@
 {
   "name": "react-native-shake",
-  "version": "5.5.1",
+  "version": "5.5.2",
   "description": "A library to detect shake event on Android and iOS",
   "homepage": "https://github.com/Doko-Demo-Doa/react-native-shake",
   "main": "lib/src/index.js",
