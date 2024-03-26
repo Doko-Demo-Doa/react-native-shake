@@ -5,9 +5,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   publish:
@@ -17,9 +14,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       - run: npm i -g typescript
       - run: npm install
-      - uses: JS-DevTools/npm-publish@v1 # https://github.com/JS-DevTools/npm-publish
+      - uses: JS-DevTools/npm-publish@v3 # https://github.com/JS-DevTools/npm-publish
         with:
           token: ${{ secrets.NPM_TOKEN }}
