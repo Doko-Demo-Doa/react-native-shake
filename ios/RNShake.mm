@@ -5,24 +5,23 @@
 
 #import "RNShakeSpec.h"
 
-@interface RNShake () <NativeRNShakeSpec>
-@end
-
 #endif
 
 @interface RNShake () <RNShakeImplDelegate>
 @end
 
-@implementation RNShake{
+@implementation RNShake {
     RNShakeImpl *moduleImpl;
     BOOL hasListeners;
 }
 
-RCT_EXPORT_MODULE(RNShake)
+@synthesize bridge = _bridge;
 
--(instancetype)init {
+RCT_EXPORT_MODULE()
+
+- (instancetype)init {
     self = [super init];
-    if(self){
+    if (self) {
         moduleImpl = [RNShakeImpl new];
         moduleImpl.delegate = self;
     }
@@ -30,13 +29,12 @@ RCT_EXPORT_MODULE(RNShake)
 }
 
 - (void)handleEventWithName:(NSString * _Nonnull)name {
-    if(hasListeners){
+    if (hasListeners) {
         [self sendEventWithName:name body:nil];
     }
 }
 
-- (NSArray<NSString *> *)supportedEvents
-{
+- (NSArray<NSString *> *)supportedEvents {
     return [RNShakeImpl supportedEvents];
 }
 
@@ -52,12 +50,15 @@ RCT_EXPORT_MODULE(RNShake)
 
 + (BOOL)requiresMainQueueSetup
 {
-    return YES;
+    return NO;
 }
 
-#if RCT_NEW_ARCH_ENABLED
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params {
-        return std::make_shared<facebook::react::NativeRNShakeSpecJSI>(params);
+// Don't compile this code when we build for the old architecture.
+#ifdef RCT_NEW_ARCH_ENABLED
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
+    (const facebook::react::ObjCTurboModule::InitParams &)params
+{
+    return std::make_shared<facebook::react::NativeShakeSpecJSI>(params);
 }
 #endif
 

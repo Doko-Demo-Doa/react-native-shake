@@ -1,22 +1,29 @@
 {
   "compilerOptions": {
-    "declaration": true,
+    "rootDir": ".",
+    "paths": {
+      "react-native-shake": ["./src/index"]
+    },
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "esModuleInterop": true,
-    "jsx": "react-native",
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
     "lib": ["ESNext"],
-    "module": "CommonJS",
-    "noEmitOnError": true,
-    "outDir": "./lib",
-    "sourceMap": true,
-    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
+    "strict": true,
     "target": "ESNext",
-  },
-  "exclude": [
-    "**/__tests__/*",
-    "typings/browser.d.ts",
-    "typings/browser",
-    "node_modules"
-  ],
-  "include": ["src"]
+    "verbatimModuleSyntax": true
+  }
 }
