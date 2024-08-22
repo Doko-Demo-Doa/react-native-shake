@@ -45,6 +45,27 @@ Follow this [guide](https://reactnative.dev/docs/linking-libraries-ios)
 
 ## Usage
 
+For 5.x.x and higher:
+
+```tsx
+import React from 'react';
+
+export const MyComponent = () => {
+  React.useEffect(() => {
+    const subscription = RNShake.addListener(() => {
+      // Your code here...
+    });
+
+    return () => {
+      // Your code here...
+      subscription.remove();
+    };
+  }, []);
+};
+```
+
+and for older versions:
+
 ```tsx
 import RNShake from 'react-native-shake';
 
@@ -73,20 +94,4 @@ class MyComponent extends React.Component {
     RNShake.removeListener();
   }
 }
-
-// For v5.x.x onwards:
-import React from 'react';
-
-export const MyComponent = () => {
-  React.useEffect(() => {
-    const subscription = RNShake.addListener(() => {
-      // Your code here...
-    });
-
-    return () => {
-      // Your code here...
-      subscription.remove();
-    };
-  }, []);
-};
 ```
