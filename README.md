@@ -12,7 +12,7 @@ Thank you!
 
 With this library, you can add shake event detector on your React Native app. Because `react-native-shake-event` is not in active development anymore, I decided to created this.
 
-Please note that it only works on *real devices*
+Please note that it only works on _real devices_
 
 ## Installation
 
@@ -75,18 +75,18 @@ class MyComponent extends React.Component {
 }
 
 // For v5.x.x onwards:
-import React from 'react'
+import React from 'react';
 
 export const MyComponent = () => {
   React.useEffect(() => {
     const subscription = RNShake.addListener(() => {
       // Your code here...
-    })
+    });
 
     return () => {
       // Your code here...
-      subscription.remove()
-    }
-  }, [])
-}
+      subscription.remove();
+    };
+  }, []);
+};
 ```

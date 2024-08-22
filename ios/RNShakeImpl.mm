@@ -44,7 +44,7 @@ static NSString *const RNShakeEventName = @"ShakeEvent";
     return self;
 }
 
--(void)dealloc
+- (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
