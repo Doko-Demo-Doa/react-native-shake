@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 20
       - run: npm i -g typescript
-      - run: npm install
+      - run: yarn install --immutable
       - uses: JS-DevTools/npm-publish@v3 # https://github.com/JS-DevTools/npm-publish
         with:
           token: ${{ secrets.NPM_TOKEN }}
