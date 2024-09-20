@@ -11,6 +11,12 @@ jobs:
   fix-android:
     runs-on: ubuntu-latest
     steps:
+      - name: Install JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
