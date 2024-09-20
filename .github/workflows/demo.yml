@@ -25,7 +25,3 @@ jobs:
 
       - name: Check folders
         run: ls -l $ANDROID_HOME/cmdline-tools
-
-      - name: Finalize Android SDK
-        run: |
-          /bin/bash -c "yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null"
