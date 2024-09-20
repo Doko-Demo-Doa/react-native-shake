@@ -86,6 +86,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      # https://github.com/react-native-community/cli/issues/2498
+      - name: Fix CLI build
+        run: chmod u+x node_modules/@react-native-community/cli/build/*.js
+
       - name: Finalize Android SDK
         run: /bin/bash -c "yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null"
 
