@@ -86,6 +86,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Finalize Android SDK
+        run: |
+          /bin/bash -c "yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null"
+
       - name: Cache Gradle
         if: env.turbo_cache_hit != 1
         uses: actions/cache@v3
