@@ -147,6 +147,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cocoapods-
 
+      - name: Prepare cocoapods
+        run: gem install cocoapods
+
       - name: Install cocoapods
         if: env.turbo_cache_hit != 1 && steps.cocoapods-cache.outputs.cache-hit != 'true'
         run: |
