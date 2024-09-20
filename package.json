@@ -127,6 +127,9 @@
     "root": true,
     "extends": [
       "@react-native",
+      "prettier/prettier"
+    ],
+    "plugins": [
       "prettier"
     ],
     "rules": {
