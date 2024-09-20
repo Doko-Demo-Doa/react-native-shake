@@ -87,9 +87,7 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Finalize Android SDK
-        run: |
-          /bin/bash -c "echo $ANDROID_HOME"
-          ls -l $ANDROID_HOME/cmdline-tools
+        run: /bin/bash -c "yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null"
 
       - name: Cache Gradle
         if: env.turbo_cache_hit != 1
@@ -105,8 +103,7 @@ jobs:
       - name: Build example for Android
         env:
           JAVA_OPTS: '-XX:MaxHeapSize=6g'
-        run: |
-          yarn turbo run build:android
+        run: yarn turbo run build:android --cache-dir="${{ env.TURBO_CACHE_DIR }}"
 
   build-ios:
     runs-on: macos-14
