@@ -24,4 +24,4 @@ jobs:
         run: /bin/bash -c "echo $ANDROID_HOME"
 
       - name: Check folders
-        run: ls -l $ANDROID_HOME/cmdline-tools
+        run: $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager
