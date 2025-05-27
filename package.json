@@ -42,10 +42,10 @@
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib android/generated ios/generated",
+    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib ios/generated",
     "prepare": "bob build",
     "release": "release-it",
-    "codegen": "node node_modules/react-native/scripts/generate-codegen-artifacts.js --path . --targetPlatform android --outputPath ./android/generated/"
+    "codegen": "node node_modules/react-native/scripts/generate-codegen-artifacts.js --path . --targetPlatform android --outputPath ./android/build/generated/source/codegen"
   },
   "keywords": [
     "react-native",
@@ -193,7 +193,7 @@
     "jsSrcsDir": "src",
     "outputDir": {
       "ios": "ios/generated",
-      "android": "android/generated"
+      "android": "android/build/generated/source/codegen"
     },
     "android": {
       "javaPackageName": "com.shake"
