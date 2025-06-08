@@ -199,7 +199,7 @@
     "android": {
       "javaPackageName": "com.shake"
     },
-    "includesGeneratedCode": true
+    "includesGeneratedCode": false
   },
   "create-react-native-library": {
     "type": "module-mixed",
