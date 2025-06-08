@@ -12,7 +12,7 @@ Thank you!
 
 With this library, you can add shake event detector on your React Native app. Because `react-native-shake-event` is not in active development anymore, I decided to created this.
 
-Please note that it only works on _real devices_
+It should work best on _real devices_
 
 ## Installation
 
