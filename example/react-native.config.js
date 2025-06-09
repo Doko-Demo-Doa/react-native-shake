@@ -13,7 +13,7 @@ module.exports = {
       platforms: {
         // Codegen script incorrectly fails without this
         // So we explicitly specify the platforms with empty object
-        ios: {},
+        // ios: {},
         android: null,
       },
     },
