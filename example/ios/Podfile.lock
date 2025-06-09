@@ -1332,7 +1332,7 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-shake (6.0.0-beta.3):
+  - react-native-shake (6.6.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1944,7 +1944,7 @@ SPEC CHECKSUMS:
   React-logger: 514fac028fee60c84591f951c7c04ba1c5023334
   React-Mapbuffer: fae8da2c01aeb7f26ad739731b6dba61fd02fd97
   React-microtasksnativemodule: 20454ffccff553f0ee73fd20873aa8555a5867fb
-  react-native-shake: 5968344fc4356e73d0b2ec67aaef05af37f07a6c
+  react-native-shake: 9d0f4385eb78cc7e1b51655d746c4b4f7d7f961e
   React-NativeModulesApple: 65b2735133d6ce8a3cb5f23215ef85e427b0139c
   React-oscompat: f26aa2a4adc84c34212ab12c07988fe19e9cf16a
   React-perflogger: e15a0d43d1928e1c82f4f0b7fc05f7e9bccfede8
