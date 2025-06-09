@@ -1,6 +1,6 @@
 {
   "name": "react-native-shake",
-  "version": "6.6.0",
+  "version": "6.7.3",
   "description": "React Native shake event detector",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -198,8 +198,7 @@
     },
     "android": {
       "javaPackageName": "com.shake"
-    },
-    "includesGeneratedCode": true
+    }
   },
   "create-react-native-library": {
     "type": "module-mixed",
