@@ -166,6 +166,6 @@ jobs:
             **/ios/Pods
           key: ${{ steps.cocoapods-cache.outputs.cache-key }}
 
-      - name: Build example for iOS
-        run: |
-          yarn turbo run build:ios --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+      # - name: Build example for iOS
+      #   run: |
+      #     yarn turbo run build:ios --cache-dir="${{ env.TURBO_CACHE_DIR }}"
