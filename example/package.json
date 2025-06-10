@@ -10,17 +10,21 @@
     "build:ios": "react-native build-ios --scheme ShakeExample --mode Debug --extra-params \"-sdk iphonesimulator CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ GCC_OPTIMIZATION_LEVEL=0 GCC_PRECOMPILE_PREFIX_HEADER=YES ASSETCATALOG_COMPILER_OPTIMIZATION=time DEBUG_INFORMATION_FORMAT=dwarf COMPILER_INDEX_STORE_ENABLE=NO\""
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-native": "0.79.3"
+    "react": "19.0.0",
+    "react-native": "0.79.2"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
     "@babel/runtime": "^7.27.6",
-    "@react-native/babel-preset": "0.79.3",
-    "@react-native/metro-config": "0.79.3",
-    "@react-native/typescript-config": "0.79.3",
-    "react-native-builder-bob": "^0.40.11"
+    "@react-native-community/cli": "18.0.0",
+    "@react-native-community/cli-platform-android": "18.0.0",
+    "@react-native-community/cli-platform-ios": "18.0.0",
+    "@react-native/babel-preset": "0.79.2",
+    "@react-native/metro-config": "0.79.2",
+    "@react-native/typescript-config": "0.79.2",
+    "react-native-builder-bob": "^0.40.11",
+    "react-native-monorepo-config": "^0.1.9"
   },
   "engines": {
     "node": ">=18"
