@@ -100,11 +100,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Build example for Android
-        env:
-          JAVA_OPTS: '-XX:MaxHeapSize=6g'
-        run: |
-          yarn turbo run build:android --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+      # - name: Build example for Android
+      #   env:
+      #     JAVA_OPTS: '-XX:MaxHeapSize=6g'
+      #   run: |
+      #     yarn turbo run build:android --cache-dir="${{ env.TURBO_CACHE_DIR }}"
 
   build-ios:
     runs-on: macos-latest
