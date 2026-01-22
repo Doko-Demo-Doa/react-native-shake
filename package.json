@@ -84,15 +84,14 @@
     "prettier": "^3.5.3",
     "react": "19.0.0",
     "react-native": "0.79.7",
-    "react-native-builder-bob": "^0.40.11",
+    "react-native-builder-bob": "^0.40.17",
     "release-it": "^19.2.4",
     "turbo": "^2.7.5",
     "typescript": "^5.8.3"
   },
   "resolutions": {
     "@types/react": "^18.2.44",
-    "glob": "^13.0.0",
-    "rimraf": "^6.1.2"
+    "glob": "^13.0.0"
   },
   "peerDependencies": {
     "react": "*",
