@@ -12,7 +12,7 @@ A lightweight React Native library that detects shake gestures on both iOS and A
 
 If this project helps you, consider buying me a pizza 🍕
 
-<a href="https://www.buymeacoffee.com/dokodemodoa"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=dokodemodoa&button_colour=40DCA5&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dokodemodoa)
 
 ---
 
