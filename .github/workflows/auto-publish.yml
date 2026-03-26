@@ -22,6 +22,6 @@ jobs:
       - run: npm i -g typescript
       - run: yarn install --immutable
       - run: yarn prepare
-      - uses: JS-DevTools/npm-publish@v4 # https://github.com/JS-DevTools/npm-publish
+      - uses: JS-DevTools/npm-publish@v4.1.5 # https://github.com/JS-DevTools/npm-publish
         with:
           token: ${{ secrets.NPM_TOKEN }}
