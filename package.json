@@ -1,6 +1,6 @@
 {
   "name": "react-native-shake",
-  "version": "6.8.4",
+  "version": "6.8.5",
   "description": "React Native shake event detector",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -17,7 +17,8 @@
         "default": "./lib/commonjs/index.js"
       }
     },
-    "./types": "./lib/typescript/module/src/index.d.ts"
+    "./types": "./lib/typescript/module/src/index.d.ts",
+    "./package.json": "./package.json"
   },
   "files": [
     "src",
@@ -197,6 +198,11 @@
     "outputDir": {
       "ios": "ios/generated",
       "android": "android/generated"
+    },
+    "ios": {
+      "modulesProvider": {
+        "RNShake": "RNShake"
+      }
     },
     "android": {
       "javaPackageName": "com.shake"
