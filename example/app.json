@@ -1,4 +1,31 @@
 {
-  "name": "ShakeExample",
-  "displayName": "ShakeExample"
+  "expo": {
+    "name": "React Native Shake Example",
+    "slug": "react-native-test-lib-cpp-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "testlibcpp.example"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "testlibcpp.example"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
 }
