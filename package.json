@@ -86,14 +86,26 @@
     "prettier": "^3.5.3",
     "react": "19.0.0",
     "react-native": "0.79.7",
-    "react-native-builder-bob": "^0.40.18",
+    "react-native-builder-bob": "^0.41.0",
     "release-it": "^19.2.4",
     "turbo": "^2.8.20",
     "typescript": "^5.8.3"
   },
   "resolutions": {
     "@types/react": "^18.2.44",
-    "glob": "^13.0.0"
+    "glob": "^13.0.0",
+    "ajv@^6.12.4": "6.14.0",
+    "ajv@^8.11.0": "8.18.0",
+    "brace-expansion@^1.1.7": "1.1.13",
+    "chromium-edge-launcher@^0.2.0": "0.3.0",
+    "handlebars": "4.7.9",
+    "lodash": "4.18.1",
+    "minimatch@^3.0.4": "3.1.5",
+    "minimatch@^3.1.2": "3.1.5",
+    "minimatch@^10.1.1": "10.2.5",
+    "picomatch@^4.0.3": "4.0.4",
+    "undici": "6.24.1",
+    "yaml": "2.8.3"
   },
   "peerDependencies": {
     "react": "*",
