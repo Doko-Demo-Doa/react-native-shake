@@ -16,7 +16,7 @@
   "private": true,
   "devDependencies": {
     "expo-dev-client": "~55.0.16",
-    "react-native-builder-bob": "^0.40.18",
+    "react-native-builder-bob": "^0.41.0",
     "react-native-monorepo-config": "^0.3.3"
   }
 }
