@@ -55,11 +55,14 @@ RCT_EXPORT_MODULE()
 
 // Don't compile this code when we build for the old architecture.
 #ifdef RCT_NEW_ARCH_ENABLED
+// ObjCTurboModule was removed in RN 0.79; getTurboModule: is no longer needed there.
+#if __has_include(<ReactCommon/ObjCTurboModule.h>)
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params
 {
     return std::make_shared<facebook::react::NativeShakeSpecJSI>(params);
 }
+#endif
 #endif
 
 @end
