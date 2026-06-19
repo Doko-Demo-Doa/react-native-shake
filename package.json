@@ -1,6 +1,6 @@
 {
   "name": "react-native-shake",
-  "version": "6.8.5",
+  "version": "6.9.5",
   "description": "React Native shake event detector",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -114,7 +114,7 @@
   "workspaces": [
     "example"
   ],
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.17.0",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
