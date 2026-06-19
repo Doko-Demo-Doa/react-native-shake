@@ -148,6 +148,34 @@ Removes all active shake event listeners.
 RNShake.removeAllListeners();
 ```
 
+### `RNShake.configure(sensitivity)` (Android only)
+
+Adjusts how sensitive the shake detector is. Call this before adding your listener, typically on app startup.
+
+| Parameter     | Type                              | Default    |
+| ------------- | --------------------------------- | ---------- |
+| `sensitivity` | `'light' \| 'normal' \| 'heavy'` | `'normal'` |
+
+| Value      | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| `'light'`  | Triggers on slight movement — good for accessibility use cases |
+| `'normal'` | Default behavior, matches the original library threshold |
+| `'heavy'`  | Requires a vigorous shake — reduces accidental triggers  |
+
+> **iOS:** This method is a no-op. iOS uses the system's native shake gesture detection (`UIEventSubtypeMotionShake`) which does not expose a sensitivity API.
+
+```tsx
+import RNShake from 'react-native-shake';
+import type { Sensitivity } from 'react-native-shake';
+
+// Set sensitivity before adding listeners
+RNShake.configure('light');
+
+const subscription = RNShake.addListener(() => {
+  console.log('Device shaken!');
+});
+```
+
 ---
 
 ## TypeScript Support
