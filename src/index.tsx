@@ -1,6 +1,5 @@
 import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
-import type { Sensitivity } from './NativeShake';
-export type { Sensitivity } from './NativeShake';
+export type Sensitivity = 'light' | 'normal' | 'heavy';
 
 const LINKING_ERROR =
   "The package 'react-native-shake' doesn't seem to be linked. Make sure: \n\n" +
