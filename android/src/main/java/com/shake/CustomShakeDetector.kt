@@ -7,10 +7,11 @@ import android.hardware.SensorManager
 import java.util.concurrent.TimeUnit
 
 /** Listens for the user shaking their phone. Allocation-less once it starts listening. */
-public class CustomShakeDetector
-@JvmOverloads
-constructor(private val shakeListener: ShakeListener, private val minNumShakes: Int = 1) :
-  SensorEventListener {
+public class CustomShakeDetector(
+  private val shakeListener: ShakeListener,
+  private val requiredForce: Float = DEFAULT_REQUIRED_FORCE,
+  private val numShakesThreshold: Int = 8,
+) : SensorEventListener {
 
   private var accelerationX = 0f
   private var accelerationY = 0f
@@ -56,7 +57,7 @@ constructor(private val shakeListener: ShakeListener, private val minNumShakes: 
    * @return true if the magnitude of the force exceeds the minimum required amount of force. false
    *   otherwise.
    */
-  private fun atLeastRequiredForce(a: Float): Boolean = Math.abs(a) > REQUIRED_FORCE
+  private fun atLeastRequiredForce(a: Float): Boolean = Math.abs(a) > requiredForce
 
   /**
    * Save data about last shake
@@ -96,7 +97,7 @@ constructor(private val shakeListener: ShakeListener, private val minNumShakes: 
   override fun onAccuracyChanged(sensor: Sensor, i: Int): Unit = Unit
 
   private fun maybeDispatchShake(currentTimestamp: Long) {
-    if (numShakes >= 8 * minNumShakes) {
+    if (numShakes >= numShakesThreshold) {
       reset()
       shakeListener.onShake()
     }
@@ -112,6 +113,5 @@ private val MIN_TIME_BETWEEN_SAMPLES_NS = TimeUnit.NANOSECONDS.convert(20, TimeU
 // Number of nanoseconds to listen for and count shakes (nanoseconds)
 private val SHAKING_WINDOW_NS = TimeUnit.NANOSECONDS.convert(3, TimeUnit.SECONDS).toFloat()
 
-// Required force to constitute a rage shake. Need to multiply gravity by 1.33 because a rage
-// shake in one direction should have more force than just the magnitude of free fall.
-private const val REQUIRED_FORCE = SensorManager.GRAVITY_EARTH * 1.33f
+// Default required force: 1.33× gravity so a shake has more force than free fall.
+private val DEFAULT_REQUIRED_FORCE = SensorManager.GRAVITY_EARTH * 1.33f

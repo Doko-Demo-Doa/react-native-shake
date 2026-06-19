@@ -1,4 +1,5 @@
 import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
+export type Sensitivity = 'light' | 'normal' | 'heavy';
 
 const LINKING_ERROR =
   "The package 'react-native-shake' doesn't seem to be linked. Make sure: \n\n" +
@@ -31,4 +32,7 @@ export default {
     return eventEmitter.addListener('ShakeEvent', callback);
   },
   removeAllListeners: () => eventEmitter.removeAllListeners('ShakeEvent'),
+  configure: (sensitivity: Sensitivity) => {
+    Shake.configure(sensitivity);
+  },
 };
