@@ -38,15 +38,11 @@ class ShakeModule internal constructor(private val context: ReactApplicationCont
   }
 
   @ReactMethod
-  override fun configure(sensitivity: String?) {
+  override fun configure(sensitivity: Double) {
     val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-    val (force, count) = when (sensitivity) {
-      "light"  -> Pair(SensorManager.GRAVITY_EARTH * 0.75f, 4)
-      "heavy"  -> Pair(SensorManager.GRAVITY_EARTH * 1.8f,  12)
-      else     -> Pair(SensorManager.GRAVITY_EARTH * 1.33f, 8) // "normal"
-    }
+    val force = SensorManager.GRAVITY_EARTH * sensitivity.toFloat()
     shakeDetector.stop()
-    shakeDetector = CustomShakeDetector({ sendEvent() }, force, count)
+    shakeDetector = CustomShakeDetector({ sendEvent() }, force)
     shakeDetector.start(sensorManager)
   }
 

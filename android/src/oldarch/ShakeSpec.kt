@@ -7,7 +7,7 @@ import com.facebook.react.bridge.Promise
 abstract class ShakeSpec internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
 
-  abstract fun configure(sensitivity: String?)
+  abstract fun configure(sensitivity: Double)
 
   abstract fun addListener(eventName: String?)
 
