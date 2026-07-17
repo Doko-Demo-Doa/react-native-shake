@@ -3,7 +3,7 @@ import { TurboModuleRegistry } from 'react-native';
 
 /* Required Methods for NativeEventEmitter */
 export interface Spec extends TurboModule {
-  configure(sensitivity: string): void;
+  configure(sensitivity: number): void;
   addListener(eventName: string): void;
   removeListeners(count: number): void;
 }

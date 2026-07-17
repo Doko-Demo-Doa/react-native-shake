@@ -1,5 +1,9 @@
 import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
-export type Sensitivity = 'light' | 'normal' | 'heavy';
+/**
+ * Required shake force, as a multiple of Earth's gravity. Lower values trigger more easily.
+ * Reference points: 0.75 (light), 1.33 (normal, default), 1.8 (heavy).
+ */
+export type Sensitivity = number;
 
 const LINKING_ERROR =
   "The package 'react-native-shake' doesn't seem to be linked. Make sure: \n\n" +
