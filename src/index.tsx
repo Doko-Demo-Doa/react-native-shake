@@ -35,7 +35,9 @@ export default {
   addListener: (callback: () => void | undefined) => {
     return eventEmitter.addListener('ShakeEvent', callback);
   },
-  removeAllListeners: () => eventEmitter.removeAllListeners('ShakeEvent'),
+  removeAllListeners: () => {
+    eventEmitter.removeAllListeners('ShakeEvent');
+  },
   configure: (sensitivity: Sensitivity) => {
     Shake.configure(sensitivity);
   },
