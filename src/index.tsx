@@ -37,11 +37,6 @@ export default {
   },
   removeAllListeners: () => {
     eventEmitter.removeAllListeners('ShakeEvent');
-    // Escape hatch: the native listener count can drift (e.g. a stale subscription's remove()
-    // after removeAllListeners), so also force the Android sensor off.
-    if (Platform.OS === 'android') {
-      Shake.removeAllListeners();
-    }
   },
   configure: (sensitivity: Sensitivity) => {
     Shake.configure(sensitivity);

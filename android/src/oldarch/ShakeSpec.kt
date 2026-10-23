@@ -12,4 +12,6 @@ abstract class ShakeSpec internal constructor(context: ReactApplicationContext) 
   abstract fun addListener(eventName: String?)
 
   abstract fun removeListeners(count: Double)
+
+  abstract fun removeAllListeners()
 }
