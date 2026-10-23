@@ -26,8 +26,9 @@ public class CustomShakeDetector(
   private var numShakes = 0
   private var lastShakeTimestamp: Long = 0
 
-  /** Start listening for shakes. */
+  /** Start listening for shakes. No-op if already listening. */
   public fun start(manager: SensorManager): Unit {
+    if (sensorManager != null) return
     val accelerometer = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) ?: return
     sensorManager = manager
     lastTimestamp = -1

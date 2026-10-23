@@ -8,14 +8,14 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "expo": "^56.0.12",
-    "expo-status-bar": "~56.0.4",
-    "react": "19.2.3",
-    "react-native": "0.85.3"
+    "expo": "^58.0.17",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-native": "0.88.0"
   },
   "private": true,
   "devDependencies": {
-    "expo-dev-client": "~56.0.20",
+    "expo-dev-client": "~58.0.14",
     "react-native-builder-bob": "^0.43.0",
     "react-native-monorepo-config": "^0.4.0"
   }

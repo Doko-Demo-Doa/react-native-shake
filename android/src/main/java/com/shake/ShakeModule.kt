@@ -10,26 +10,20 @@ import com.facebook.react.modules.core.DeviceEventManagerModule
 class ShakeModule internal constructor(private val context: ReactApplicationContext) :
   ShakeSpec(context) {
 
-  private lateinit var shakeDetector: CustomShakeDetector
+  private val lock = Any()
+  private var shakeDetector = CustomShakeDetector({ sendEvent() })
+  private var listenerCount = 0
 
   override fun getName(): String {
     return NAME
   }
 
-  override fun initialize() {
-    super.initialize()
-    shakeDetector = CustomShakeDetector({
-      sendEvent()
-    })
-
-    shakeDetector.start(
-      context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-    )
-  }
-
   override fun invalidate() {
     super.invalidate()
-    shakeDetector.stop()
+    synchronized(lock) {
+      listenerCount = 0
+      shakeDetector.stop()
+    }
   }
 
   private fun sendEvent() {
@@ -37,22 +31,54 @@ class ShakeModule internal constructor(private val context: ReactApplicationCont
       .emit(EVENT_NAME, null)
   }
 
-  @ReactMethod
-  override fun configure(sensitivity: Double) {
-    val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-    val force = SensorManager.GRAVITY_EARTH * sensitivity.toFloat()
-    shakeDetector.stop()
-    shakeDetector = CustomShakeDetector({ sendEvent() }, force)
-    shakeDetector.start(sensorManager)
+  private fun startDetector() {
+    shakeDetector.start(
+      context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+    )
   }
 
-  // https://stackoverflow.com/questions/69538962/new-nativeeventemitter-was-called-with-a-non-null-argument-without-the-requir
+  @ReactMethod
+  override fun configure(sensitivity: Double) {
+    val force = SensorManager.GRAVITY_EARTH * sensitivity.toFloat()
+    synchronized(lock) {
+      shakeDetector.stop()
+      shakeDetector = CustomShakeDetector({ sendEvent() }, force)
+      // Only hold the accelerometer while JS is actually listening.
+      if (listenerCount > 0) {
+        startDetector()
+      }
+    }
+  }
+
+  // The accelerometer is registered when the first JS listener is added and released when the
+  // last one is removed, driven by NativeEventEmitter's addListener/removeListeners calls.
   @ReactMethod
   override fun addListener(eventName: String?) {
+    synchronized(lock) {
+      listenerCount++
+      if (listenerCount == 1) {
+        startDetector()
+      }
+    }
   }
 
   @ReactMethod
   override fun removeListeners(count: Double) {
+    synchronized(lock) {
+      listenerCount = maxOf(0, listenerCount - count.toInt())
+      if (listenerCount == 0) {
+        shakeDetector.stop()
+      }
+    }
+  }
+
+  // Escape hatch: unconditionally release the sensor, regardless of the tracked listener count.
+  @ReactMethod
+  override fun removeAllListeners() {
+    synchronized(lock) {
+      listenerCount = 0
+      shakeDetector.stop()
+    }
   }
 
   companion object {
