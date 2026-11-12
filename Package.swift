@@ -32,7 +32,7 @@ let package = Package(
             path: ".",
             exclude: unusedRootEntries + unusedIosEntries,
             sources: ["ios"],
-            publicHeadersPath: "ios",
+            publicHeadersPath: "spm-headers",
             cSettings: [
                 .define("RCT_NEW_ARCH_ENABLED", to: "1"),
                 .headerSearchPath("spm-headers"),
