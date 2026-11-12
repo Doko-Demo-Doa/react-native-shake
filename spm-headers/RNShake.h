@@ -1,0 +1,1 @@
+#import "../ios/RNShake.h"
