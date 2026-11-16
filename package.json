@@ -36,7 +36,9 @@
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
-    "!**/.*"
+    "!**/.*",
+    "Package.swift",
+    "spm-headers"
   ],
   "scripts": {
     "example": "yarn workspace react-native-shake-example",
@@ -202,5 +204,8 @@
     "type": "module-mixed",
     "languages": "kotlin-objc",
     "version": "0.48.3"
+  },
+  "swiftpmConfig": {
+    "name": "RNShake"
   }
 }
