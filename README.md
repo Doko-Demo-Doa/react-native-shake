@@ -45,7 +45,7 @@ npm install react-native-shake
 or
 
 ```sh
-yarn add react-native-shake
+pnpm add react-native-shake
 ```
 
 ### iOS Setup
