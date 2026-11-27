@@ -1,6 +1,6 @@
 {
   "name": "react-native-shake",
-  "version": "6.11.0",
+  "version": "6.11.1",
   "description": "React Native shake event detector",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
